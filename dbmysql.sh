@@ -5,14 +5,11 @@ source ./common.sh
 check_root
 
 echo "Please enter DB password:"
- read mysql_root_password
+read mysql_root_password
 
-
-dnf install mysql-server -y &>>$LOGFILE
-
+dnf install mysqlll-server -y &>>$LOGFILE
 
 systemctl enable mysqld &>>$LOGFILE
-
 
 systemctl start mysqld &>>$LOGFILE
 
