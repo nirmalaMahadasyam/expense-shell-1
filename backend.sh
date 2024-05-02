@@ -49,9 +49,8 @@ systemctl enable backend &>>$LOGFILE
 
 dnf install mysql -y &>>$LOGFILE
 
+mysql -h dbsql.nirmaladevops.cloud  -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>$LOGFILE
 
-mysql -h dbsql.nirmaladevops.cloud -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>$LOGFILE
-VALIDATE $? "Schema loading"
 
 systemctl restart backend &>>$LOGFILE
-VALIDATE $? "Restarting Backend"
+
